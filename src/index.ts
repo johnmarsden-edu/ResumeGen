@@ -22,6 +22,8 @@ async function htmlToPdfBuffer(html: string): Promise<Buffer> {
         margin: { top: '.75in', right: '.75in', bottom: '.75in', left: '.75in' },
         printBackground: true,
         format: 'Letter',
+        tagged: true,
+        outline: true,
     }).then(async (buf) => {
         await browser.close();
         return buf;
