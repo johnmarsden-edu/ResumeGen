@@ -1,6 +1,20 @@
-import { formatDateString } from "./formatDateString.js";
+export function formatDateString(dateString: string): string {
+    return new Date(dateString).toLocaleDateString('en', {
+            dateStyle: 'short'
+        });
+}
 
-export default function formatDateRange(
+export function formatDate(dateString: string | undefined, prefix: string | undefined) {
+    if (dateString === undefined) {
+        return '';
+    }
+
+    prefix = prefix === undefined ? '' : prefix;
+
+    return `<span class="date">${prefix}${formatDateString(dateString)}</span>`;
+}
+
+export function formatDateRange(
     startDate: string | undefined,
     endDate: string | undefined) {
     const out = [];

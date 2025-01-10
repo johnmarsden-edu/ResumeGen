@@ -9,10 +9,24 @@ import {Result} from "@badrap/result";
 import {promisify} from "node:util";
 import * as defaultTheme from './theme.js';
 import {mergician} from "mergician";
+import Handlebars from "handlebars";
+
+import { formatDate, formatDateRange, formatDateString } from "./helpers/helpers.js";
+
+let helpers = {
+    formatDate: formatDate,
+    formatDateRange: formatDateRange,
+    formatDateString: formatDateString,
+};
+
+
+for (const [name, func] of Object.entries(helpers)) {
+    Handlebars.registerHelper(name, func);
+}
 
 const validate: (obj: object) => Promise<boolean> = promisify(schema.validate);
 
-async function htmlToPdfBuffer(html: string): Promise<Buffer> {
+async function htmlToPdfBuffer(html: string): Promise<NodeJS.ArrayBufferView> {
     const puppeteer = await import("puppeteer");
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
@@ -76,7 +90,7 @@ enum RenderMode {
 
 interface Render {
     mode: RenderMode;
-    bufferGenFunc: (html: string) => Promise<Buffer>;
+    bufferGenFunc: (html: string) => Promise<NodeJS.ArrayBufferView>;
 }
 
 async function renderResume({outName, theme, resumePaths, renders}: {outName: string, theme: string, resumePaths: string[], renders: Render[]}): Promise<Result<string>> {
@@ -104,11 +118,11 @@ async function renderResume({outName, theme, resumePaths, renders}: {outName: st
     return Result.ok(outputPaths.join('\n'));
 }
 
-async function htmlToBuffer(html: string): Promise<Buffer> {
+async function htmlToBuffer(html: string): Promise<NodeJS.ArrayBufferView> {
     return Buffer.from(html);
 }
 
-const funcMap: Record<string, (html: string) => Promise<Buffer>> = {
+const funcMap: Record<string, (html: string) => Promise<NodeJS.ArrayBufferView>> = {
     'pdf': htmlToPdfBuffer,
     'html': htmlToBuffer,
 };
