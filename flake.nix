@@ -1,7 +1,7 @@
 {
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:numtide/nixpkgs-unfree?ref=nixos-unstable";
   };
 
   outputs = inputs:
@@ -15,9 +15,10 @@
             pkgs.nodePackages.pnpm
             pkgs.nodePackages.typescript
             pkgs.nodePackages.typescript-language-server
+            pkgs.google-chrome
           ];
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "true";
-          PUPPETEER_EXECUTABLE_PATH = "${pkgs.chromium}/bin/chromium";
+          PUPPETEER_EXECUTABLE_PATH = "${pkgs.google-chrome}/bin/google-chrome-stable";
         };
       }
     );

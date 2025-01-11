@@ -1,6 +1,21 @@
 ---
 import DateRange from '../components/DateRange.astro';
 const { work } = Astro.props;
+work.sort((fst: { endDate: string | undefined}, snd: {endDate: string | undefined}) => {
+  if (fst.endDate === snd.endDate) {
+          return 0;
+  }
+
+  if (fst.endDate === undefined) {
+      return -1;
+  }
+
+  if (snd.endDate === undefined) {
+      return 1;
+  }
+
+  return snd.endDate.localeCompare(fst.endDate);
+});
 ---
 {/* Copyright 2024 vkcelik
     
