@@ -1,0 +1,3 @@
+[submodule "include/resume-schema"]
+	path = include/resume-schema
+	url = git@github.com:jsonresume/resume-schema.git

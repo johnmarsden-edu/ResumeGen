@@ -1,0 +1,527 @@
+{
+  "$ref": "#/definitions/resumeData",
+  "definitions": {
+    "resumeData": {
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "basics": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string",
+              "description": "e.g. Web Developer",
+              "markdownDescription": "e.g. Web Developer"
+            },
+            "image": {
+              "type": "string",
+              "description": "URL (as per RFC 3986) to a image in JPEG or PNG format",
+              "markdownDescription": "URL (as per RFC 3986) to a image in JPEG or PNG format"
+            },
+            "email": {
+              "type": "string",
+              "format": "email",
+              "description": "e.g. thomas@gmail.com",
+              "markdownDescription": "e.g. thomas@gmail.com"
+            },
+            "phone": {
+              "type": "string",
+              "description": "Phone numbers are stored as strings so use any format you like, e.g. 712-117-2923",
+              "markdownDescription": "Phone numbers are stored as strings so use any format you like, e.g. 712-117-2923"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "description": "URL (as per RFC 3986) to your website, e.g. personal homepage",
+              "markdownDescription": "URL (as per RFC 3986) to your website, e.g. personal homepage"
+            },
+            "summary": {
+              "type": "string",
+              "description": "Write a short 2-3 sentence biography about yourself",
+              "markdownDescription": "Write a short 2-3 sentence biography about yourself"
+            },
+            "location": {
+              "type": "object",
+              "properties": {
+                "address": {
+                  "type": "string",
+                  "description": "To add multiple address lines, use \n. For example, 1234 Glücklichkeit Straße\nHinterhaus 5. Etage li.",
+                  "markdownDescription": "To add multiple address lines, use \n. For example, 1234 Glücklichkeit Straße\nHinterhaus 5. Etage li."
+                },
+                "postalCode": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "countryCode": {
+                  "type": "string",
+                  "description": "code as per ISO-3166-1 ALPHA-2, e.g. US, AU, IN",
+                  "markdownDescription": "code as per ISO-3166-1 ALPHA-2, e.g. US, AU, IN"
+                },
+                "region": {
+                  "type": "string",
+                  "description": "The general region where you live. Can be a US state, or a province, for instance.",
+                  "markdownDescription": "The general region where you live. Can be a US state, or a province, for instance."
+                }
+              },
+              "additionalProperties": {}
+            },
+            "profiles": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "network": {
+                    "type": "string",
+                    "description": "e.g. Facebook or Twitter",
+                    "markdownDescription": "e.g. Facebook or Twitter"
+                  },
+                  "username": {
+                    "type": "string",
+                    "description": "e.g. neutralthoughts",
+                    "markdownDescription": "e.g. neutralthoughts"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "e.g. http://twitter.example.com/neutralthoughts",
+                    "markdownDescription": "e.g. http://twitter.example.com/neutralthoughts"
+                  }
+                },
+                "additionalProperties": {}
+              },
+              "description": "Specify any number of social networks that you participate in",
+              "markdownDescription": "Specify any number of social networks that you participate in"
+            }
+          },
+          "additionalProperties": {}
+        },
+        "work": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "e.g. Facebook",
+                "markdownDescription": "e.g. Facebook"
+              },
+              "location": {
+                "type": "string",
+                "description": "e.g. Menlo Park, CA",
+                "markdownDescription": "e.g. Menlo Park, CA"
+              },
+              "description": {
+                "type": "string",
+                "description": "e.g. Social Media Company",
+                "markdownDescription": "e.g. Social Media Company"
+              },
+              "position": {
+                "type": "string",
+                "description": "e.g. Software Engineer",
+                "markdownDescription": "e.g. Software Engineer"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "e.g. http://facebook.example.com",
+                "markdownDescription": "e.g. http://facebook.example.com"
+              },
+              "startDate": {},
+              "endDate": {},
+              "summary": {
+                "type": "string",
+                "description": "Give an overview of your responsibilities at the company",
+                "markdownDescription": "Give an overview of your responsibilities at the company"
+              },
+              "highlights": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "e.g. Increased profits by 20% from 2011-2012 through viral advertising",
+                  "markdownDescription": "e.g. Increased profits by 20% from 2011-2012 through viral advertising"
+                },
+                "description": "Specify multiple accomplishments",
+                "markdownDescription": "Specify multiple accomplishments"
+              }
+            },
+            "additionalProperties": {}
+          }
+        },
+        "volunteer": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "organization": {
+                "type": "string",
+                "description": "e.g. Facebook",
+                "markdownDescription": "e.g. Facebook"
+              },
+              "position": {
+                "type": "string",
+                "description": "e.g. Software Engineer",
+                "markdownDescription": "e.g. Software Engineer"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "e.g. http://facebook.example.com",
+                "markdownDescription": "e.g. http://facebook.example.com"
+              },
+              "startDate": {},
+              "endDate": {},
+              "summary": {
+                "type": "string",
+                "description": "Give an overview of your responsibilities at the company",
+                "markdownDescription": "Give an overview of your responsibilities at the company"
+              },
+              "highlights": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "e.g. Increased profits by 20% from 2011-2012 through viral advertising",
+                  "markdownDescription": "e.g. Increased profits by 20% from 2011-2012 through viral advertising"
+                },
+                "description": "Specify accomplishments and achievements",
+                "markdownDescription": "Specify accomplishments and achievements"
+              }
+            },
+            "additionalProperties": {}
+          }
+        },
+        "education": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "institution": {
+                "type": "string",
+                "description": "e.g. Massachusetts Institute of Technology",
+                "markdownDescription": "e.g. Massachusetts Institute of Technology"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "e.g. http://facebook.example.com",
+                "markdownDescription": "e.g. http://facebook.example.com"
+              },
+              "area": {
+                "type": "string",
+                "description": "e.g. Arts",
+                "markdownDescription": "e.g. Arts"
+              },
+              "studyType": {
+                "type": "string",
+                "description": "e.g. Bachelor",
+                "markdownDescription": "e.g. Bachelor"
+              },
+              "startDate": {},
+              "endDate": {},
+              "score": {
+                "type": "string",
+                "description": "grade point average, e.g. 3.67/4.0",
+                "markdownDescription": "grade point average, e.g. 3.67/4.0"
+              },
+              "courses": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "e.g. H1302 - Introduction to American history",
+                  "markdownDescription": "e.g. H1302 - Introduction to American history"
+                },
+                "description": "List notable courses/subjects",
+                "markdownDescription": "List notable courses/subjects"
+              }
+            },
+            "additionalProperties": {}
+          }
+        },
+        "awards": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "description": "e.g. One of the 100 greatest minds of the century",
+                "markdownDescription": "e.g. One of the 100 greatest minds of the century"
+              },
+              "date": {},
+              "awarder": {
+                "type": "string",
+                "description": "e.g. Time Magazine",
+                "markdownDescription": "e.g. Time Magazine"
+              },
+              "summary": {
+                "type": "string",
+                "description": "e.g. Received for my work with Quantum Physics",
+                "markdownDescription": "e.g. Received for my work with Quantum Physics"
+              }
+            },
+            "additionalProperties": {}
+          },
+          "description": "Specify any awards you have received throughout your professional career",
+          "markdownDescription": "Specify any awards you have received throughout your professional career"
+        },
+        "certificates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "e.g. Certified Kubernetes Administrator",
+                "markdownDescription": "e.g. Certified Kubernetes Administrator"
+              },
+              "date": {},
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "e.g. http://example.com",
+                "markdownDescription": "e.g. http://example.com"
+              },
+              "issuer": {
+                "type": "string",
+                "description": "e.g. CNCF",
+                "markdownDescription": "e.g. CNCF"
+              }
+            },
+            "additionalProperties": {}
+          },
+          "description": "Specify any certificates you have received throughout your professional career",
+          "markdownDescription": "Specify any certificates you have received throughout your professional career"
+        },
+        "publications": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "e.g. The World Wide Web",
+                "markdownDescription": "e.g. The World Wide Web"
+              },
+              "publisher": {
+                "type": "string",
+                "description": "e.g. IEEE, Computer Magazine",
+                "markdownDescription": "e.g. IEEE, Computer Magazine"
+              },
+              "releaseDate": {},
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "e.g. http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html",
+                "markdownDescription": "e.g. http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html"
+              },
+              "summary": {
+                "type": "string",
+                "description": "Short summary of publication. e.g. Discussion of the World Wide Web, HTTP, HTML.",
+                "markdownDescription": "Short summary of publication. e.g. Discussion of the World Wide Web, HTTP, HTML."
+              }
+            },
+            "additionalProperties": {}
+          },
+          "description": "Specify your publications through your career",
+          "markdownDescription": "Specify your publications through your career"
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "e.g. Web Development",
+                "markdownDescription": "e.g. Web Development"
+              },
+              "level": {
+                "type": "string",
+                "description": "e.g. Master",
+                "markdownDescription": "e.g. Master"
+              },
+              "keywords": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "e.g. HTML",
+                  "markdownDescription": "e.g. HTML"
+                },
+                "description": "List some keywords pertaining to this skill",
+                "markdownDescription": "List some keywords pertaining to this skill"
+              }
+            },
+            "additionalProperties": {}
+          },
+          "description": "List out your professional skill-set",
+          "markdownDescription": "List out your professional skill-set"
+        },
+        "languages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "language": {
+                "type": "string",
+                "description": "e.g. English, Spanish",
+                "markdownDescription": "e.g. English, Spanish"
+              },
+              "fluency": {
+                "type": "string",
+                "description": "e.g. Fluent, Beginner",
+                "markdownDescription": "e.g. Fluent, Beginner"
+              }
+            },
+            "additionalProperties": {}
+          },
+          "description": "List any other languages you speak",
+          "markdownDescription": "List any other languages you speak"
+        },
+        "interests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "e.g. Philosophy",
+                "markdownDescription": "e.g. Philosophy"
+              },
+              "keywords": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "e.g. Friedrich Nietzsche",
+                  "markdownDescription": "e.g. Friedrich Nietzsche"
+                }
+              }
+            },
+            "additionalProperties": {}
+          }
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "e.g. Timothy Cook",
+                "markdownDescription": "e.g. Timothy Cook"
+              },
+              "reference": {
+                "type": "string",
+                "description": "e.g. Joe blogs was a great employee, who turned up to work at least once a week. He exceeded my expectations when it came to doing nothing.",
+                "markdownDescription": "e.g. Joe blogs was a great employee, who turned up to work at least once a week. He exceeded my expectations when it came to doing nothing."
+              }
+            },
+            "additionalProperties": {}
+          },
+          "description": "List references you have received",
+          "markdownDescription": "List references you have received"
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "e.g. The World Wide Web",
+                "markdownDescription": "e.g. The World Wide Web"
+              },
+              "description": {
+                "type": "string",
+                "description": "Short summary of project. e.g. Collated works of 2017.",
+                "markdownDescription": "Short summary of project. e.g. Collated works of 2017."
+              },
+              "highlights": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "e.g. Directs you close but not quite there",
+                  "markdownDescription": "e.g. Directs you close but not quite there"
+                },
+                "description": "Specify multiple features",
+                "markdownDescription": "Specify multiple features"
+              },
+              "keywords": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "e.g. AngularJS",
+                  "markdownDescription": "e.g. AngularJS"
+                },
+                "description": "Specify special elements involved",
+                "markdownDescription": "Specify special elements involved"
+              },
+              "startDate": {},
+              "endDate": {},
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "e.g. http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html",
+                "markdownDescription": "e.g. http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html"
+              },
+              "roles": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "e.g. Team Lead, Speaker, Writer",
+                  "markdownDescription": "e.g. Team Lead, Speaker, Writer"
+                },
+                "description": "Specify your role on this project or in company",
+                "markdownDescription": "Specify your role on this project or in company"
+              },
+              "entity": {
+                "type": "string",
+                "description": "Specify the relevant company/entity affiliations e.g. 'greenpeace', 'corporationXYZ'",
+                "markdownDescription": "Specify the relevant company/entity affiliations e.g. 'greenpeace', 'corporationXYZ'"
+              },
+              "type": {
+                "type": "string",
+                "description": " e.g. 'volunteering', 'presentation', 'talk', 'application', 'conference'",
+                "markdownDescription": " e.g. 'volunteering', 'presentation', 'talk', 'application', 'conference'"
+              }
+            },
+            "additionalProperties": {}
+          },
+          "description": "Specify career projects",
+          "markdownDescription": "Specify career projects"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "canonical": {
+              "type": "string",
+              "format": "uri",
+              "description": "URL (as per RFC 3986) to latest version of this document",
+              "markdownDescription": "URL (as per RFC 3986) to latest version of this document"
+            },
+            "version": {
+              "type": "string",
+              "description": "A version field which follows semver - e.g. v1.0.0",
+              "markdownDescription": "A version field which follows semver - e.g. v1.0.0"
+            },
+            "lastModified": {
+              "type": "string",
+              "description": "Using ISO 8601 with YYYY-MM-DDThh:mm:ss",
+              "markdownDescription": "Using ISO 8601 with YYYY-MM-DDThh:mm:ss"
+            }
+          },
+          "additionalProperties": {},
+          "description": "The schema version and any other tooling configuration lives here",
+          "markdownDescription": "The schema version and any other tooling configuration lives here"
+        }
+      },
+      "additionalProperties": {}
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

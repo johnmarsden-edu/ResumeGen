@@ -8,3 +8,7 @@ declare module "*.css" {
     const content: string;
     export default content;
 }
+
+declare module "resume-schema" {
+    export const schema: object;
+}

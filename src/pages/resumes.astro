@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+
+const resumes = await getCollection('resumes');
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} >
+    <title>Astro</title>
+  </head>
+  <body>
+    <a href="/">Home</a>
+    <a href="/resumes/">Resumes</a>
+
+    <h1>Resumes</h1>
+    <ul>
+      {resumes.map(resume => (
+        <li><a href={`/resume/${resume.id}`}>{resume.data.name}</a></li>
+      ))}
+    </ul>
+  </body>
+</html>

@@ -4,7 +4,7 @@ export function formatDateString(dateString: string): string {
         });
 }
 
-export function formatDate(dateString: string | undefined, prefix: string | undefined) {
+export function formatDate(dateString: string | undefined, prefix?: string | undefined): string {
     if (dateString === undefined) {
         return '';
     }

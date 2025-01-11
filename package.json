@@ -1,44 +1,30 @@
 {
   "name": "resume-gen",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "description": "Automatically generate a portfolio from the given yaml files and a series of requested resumes.",
   "scripts": {
-    "build": "node esbuild.config.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "run": "pnpm run build && node dist/index.js",
-    "lint": "eslint src/"
+    "build": "astro build",
+    "astro": "astro",
+    "preview": "astro preview",
+    "dev": "astro dev",
+    "gen-zod": "json-schema-to-zod -wj -i include/resume-schema/schema.json -o src/zod/resume-schema.ts"
   },
   "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@commander-js/extra-typings": "^13.0.0",
-    "@types/node": "^22.10.5",
-    "@typescript-eslint/eslint-plugin": "^8.19.0",
-    "@yoichiro/vite-plugin-handlebars": "^1.4.0",
     "eslint": "^9.17.0",
     "eslint-config-prettier": "^9.1.0",
-    "json-schema-to-typescript": "^15.0.3",
-    "jsonresume-theme-even": "^0.23.0",
+    "json-schema-to-zod": "^2.6.0",
     "prettier": "^3.4.2",
-    "typescript": "^5.7.2",
-    "vite": "^6.0.7",
-    "vite-plugin-node-polyfills": "^0.22.0"
+    "typescript": "^5.7.3"
   },
   "dependencies": {
-    "@badrap/result": "^0.2.13",
-    "commander": "^13.0.0",
-    "handlebars": "^4.7.8",
+    "astro": "^5.1.5",
     "mergician": "^2.0.2",
-    "puppeteer": "^23.11.1",
     "resume-schema": "^1.0.1",
-    "resumed": "^4.0.0"
-  },
-  "overrides": {
-    "vite-plugin-node-polyfills": {
-      "vite": "^6.0.0"
-    }
+    "resumed": "^4.0.0",
+    "zod": "^3.24.1"
   }
 }

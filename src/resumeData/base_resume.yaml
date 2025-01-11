@@ -1,0 +1,108 @@
+basics:
+  name: John Marsden
+  image: ''
+  email: john@johnmarsden.dev
+  phone: +1 (325) 386-8728
+  url: 'https://johnmarsden.dev'
+  summary: ''
+  location:
+    city: Raleigh
+    countryCode: US
+    region: North Carolina
+  profiles:
+    - network: LinkedIn
+      username: john-marsden-programmer
+      url: 'https://www.linkedin.com/in/john-marsden-programmer'
+education:
+  - institution: North Carolina State University
+    url: 'https://www.csc.ncsu.edu/'
+    area: Computer Science
+    studyType: Ph.D.
+    endDate: 2025-05
+    gpa: '3.81'
+  - institution: Abilene Christian University
+    url: 'https://acu.edu'
+    area: Math and Computer Science
+    studyType: B.S.
+    endDate: 2020-05
+    gpa: '3.84'
+projects:
+  - name: Machine Learning on Intermediate Languages
+    highlights:
+      - >-
+        Created a code embedding machine learning model to convert control-flow
+        graphs (CFG) to vectors
+      - >-
+        Wrote a custom intermediate language representation to represent CFGs
+        for embedding
+      - Reimplemented the deepwalk learning algorithm for distributed learning
+      - >-
+        Constructed an attention network for using CFG embeddings to predict
+        student performance
+    keywords:
+      - Cap'n Proto
+      - Pytorch
+      - Rust
+      - Java
+      - Docker
+      - Bash
+      - FLOSS
+      - Machine Learning
+      - Research
+  - name: General Purpose Discord Bot
+    description: ''
+    highlights:
+      - 'Built Norm: A general-purpose Discord bot written with the .NET runtime'
+      - Implemented an HTML to Discord Markdown transpiler
+      - >-
+        Built an event announcement system that supported timezone adjustment
+        and role-based announcements
+      - Created an OMDB integration to allow for users to plan movie nights
+    website: 'https://github.com/Handy-Hangout-Studios/Norm'
+    keywords:
+      - 'C#'
+      - Postgres
+      - DSharpPlus
+      - FLOSS
+skills:
+  - name: Languages
+    keywords:
+      - 'C#'
+      - Python
+      - Java
+      - SQL
+      - Rust
+      - HTML
+      - CSS
+      - JavaScript
+      - 'F#'
+      - Lua
+      - C++
+      - C
+      - Ruby
+      - Haskell
+  - name: Frameworks
+    keywords:
+      - Pytorch
+      - Tensorflow
+      - ASP.NET
+      - Rails
+      - Vue
+  - name: Databases
+    keywords:
+      - Oracle Database
+      - Postgres
+      - MySQL
+  - name: Dev Ops
+    keywords:
+      - Fuzzing
+      - Github Actions
+      - Docker
+      - Bash
+      - Linux
+  - name: Machine Learning
+    keywords:
+      - NLP
+      - Attention Networks
+      - Neural Networks
+      - Graph Neural Networks

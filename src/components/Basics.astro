@@ -1,0 +1,74 @@
+---
+const { basics } = Astro.props;
+const contactPieces = [];
+
+if (basics.email) contactPieces.push({ klass: 'email', value: basics.email});
+if (basics.phone) contactPieces.push({klass: 'phone', value: basics.phone});
+if (basics.location) {
+  const locationPieces = [];
+  if (basics.location.city) locationPieces.push(basics.location.city);
+  if (basics.location.region) locationPieces.push(basics.location.region);
+  if (basics.location.countryCode) locationPieces.push(basics.location.countryCode);
+  contactPieces.push({ klass: 'address', value: locationPieces.join(', ')});
+}
+---
+<!-- Copyright 2024 vkcelik
+    
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+    documentation files (the “Software”), to deal in the Software without restriction, including without limitation the
+    rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit
+    persons to whom the Software is furnished to do so, subject to the following conditions:
+    
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions
+    of the Software.
+    
+    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+    THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+-->
+<div>
+  <div class='nameBlock largeFont'>
+    <span class='name'>
+      {basics.name}{basics.label && ','}
+    </span>
+    {basics.label && <span class='label'>{basics.label}</span>}
+  </div>
+  <div id='basicsBlock' class='smallFont'>
+    <div class='contactBlock'>
+      {contactPieces.map(({klass, value}, index) => (
+        <>
+          {index > 0 && <span class='divider'>|</span>}
+          <span class={klass}>{value}</span>
+        </>
+      ))}
+    </div>
+    {basics.profiles.map((profile, index) => (
+      <div class='profilesBlock'>
+        {profile.url && (
+          <>
+            {index > 0 && <span class='divider'>|</span>}
+            <span class='url'>
+              <b><a href={profile.url}>{profile.network ? profile.network : profile.url}</a></b>
+            </span>
+          </>
+        )}
+      </div>
+    ))}
+  </div>
+
+  {basics.summary && (
+    <>
+      <div class='sectionLine'></div>
+      <div id='summaryBlock' class="sectionBlock">
+        <div class='sectionName'>
+          <span>SUMMARY</span>
+        </div>
+        <div class='sectionContent'>
+          <span>{basics.summary}</span>
+        </div>
+      </div>
+    </>
+  )}
+</div>

@@ -1,14 +1,3 @@
 {
-  "compilerOptions": {
-    "target": "esnext",
-    "module": "nodenext",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "rootDir": "src",
-    "outDir": "build",
-    "sourceMap": true,
-    "moduleResolution": "NodeNext",
-  }
+  "extends": "astro/tsconfigs/strict"
 }

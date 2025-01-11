@@ -3,7 +3,6 @@ import { promises as fs } from 'fs';
 import * as path from 'path';
 // @ts-expect-error resumed has their types set up incorrectly
 import { render, Theme } from 'resumed';
-// @ts-expect-error Resume schema does not have types
 import schema from 'resume-schema';
 import {Result} from "@badrap/result";
 import {promisify} from "node:util";

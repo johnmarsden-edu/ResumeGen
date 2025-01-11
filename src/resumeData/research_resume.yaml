@@ -1,0 +1,10 @@
+publications:
+  - name: 'Facts and Stories in Phishing Training: A Replication and Extension'
+    publisher: CHI 2020
+    releaseDate: 2020-04
+    url: 'https://dl.acm.org/doi/abs/10.1145/3334480.3381435'
+    summary: >-
+      This paper analyzed the impact of the perceived provider and method of
+      training on decreasing phishing attack success. It found that students
+      were less likely to click on a phishing email if they were trained by a
+      peer with inconclusive results as to the method of training.

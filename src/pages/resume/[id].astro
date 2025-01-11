@@ -1,0 +1,257 @@
+---
+import Awards from "../../components/Awards.astro";
+import Basics from "../../components/Basics.astro";
+import Certificates from "../../components/Certificates.astro";
+import Education from "../../components/Education.astro";
+import Interests from "../../components/Interests.astro";
+import Languages from "../../components/Languages.astro";
+import Projects from "../../components/Projects.astro";
+import Publications from "../../components/Publications.astro";
+import References from "../../components/References.astro";
+import Skills from "../../components/Skills.astro";
+import Volunteer from "../../components/Volunteer.astro";
+import Work from "../../components/Work.astro";
+import { getCollection, getEntries } from "astro:content";
+
+export async function getStaticPaths() {
+    const resumes = await getCollection('resumes'); 
+    return resumes.map(resume => ({
+        params: { id: resume.id },
+        props: { resume }
+    }));
+}
+
+const { resume } = Astro.props;
+
+import {mergician} from "mergician";
+
+const mergedResume = mergician({ appendArrays: true })(...await getEntries(resume.data.sources));
+---
+
+<!-- Copyright 2024 vkcelik
+    
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+    documentation files (the “Software”), to deal in the Software without restriction, including without limitation the
+    rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit
+    persons to whom the Software is furnished to do so, subject to the following conditions:
+    
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions
+    of the Software.
+    
+    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+    THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+-->
+<!doctype html>
+<html lang="en">
+    <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+    
+    <title>{mergedResume.data.name}</title>
+
+    <style>
+        body {
+            background: #EEEEEE;
+            font: 13px "Times New Roman", Times, sans-serif;
+            line-height: 1.4;
+            margin: 40px 0;
+        }
+
+        em {
+            color: #999;
+        }
+
+        p {
+            line-height: 1.4;
+        }
+
+        ul {
+            margin-bottom: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #resume {
+            margin: 0 auto;
+            max-width: 600px;
+            padding: 1in 1in;
+            background: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 4px #aaa;
+            -webkit-box-shadow: 2px 2px 4px #aaa;
+        }
+
+        .nameBlock, .contactBlock, .profilesBlock {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .coursesList {
+            width: 28%;
+            vertical-align: top;
+            display: inline-block;
+        }
+
+        .largeFont {
+            font-size: 20px;
+        }
+
+        .smallFont {
+            font-size: 13px;
+        }
+
+        .sectionBlock {
+            display: flex;
+            width: 100%;
+        }
+
+        .sectionName {
+            width: 16%;
+            vertical-align: top;
+            display: inline-block;
+        }
+
+        .sectionContent {
+            width: 84%;
+            vertical-align: top;
+            display: inline-block;
+        }
+
+        .sectionContent ul {
+            padding-left: 20px;
+            margin-top: 0;
+            list-style-type: circle;
+        }
+
+        .sectionContent .title {
+            font-weight: bold;
+        }
+
+        .sectionContent .date {
+            float: right;
+        }
+
+        .sectionContent .separator {
+            border: 1px dashed #CFCFCF;
+            margin-top: 4px;
+            margin-bottom: 3px;
+        }
+
+        .sectionLine {
+            border-style: dashed;
+            border-width: 1px;
+            border-color: #CFCFCF;
+            margin-top: 3px;
+            margin-bottom: 7px;
+        }
+
+        .divider {
+            font-weight: bold;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        .summary {
+            margin-top: 6px;
+        }
+
+        .jobBlock {
+            page-break-inside: avoid;
+        }
+
+        .description {
+            text-align: justify;
+        }
+
+        blockquote.reference {
+            margin: 0 0 1em;
+        }
+
+
+        /* Media Queries */
+
+        @media only screen and (max-width: 40em) {
+            body {
+                margin: 0;
+                font-size: 14px;
+            }
+            #resume {
+                margin: 0 auto;
+                max-width: 600px;
+                padding: 0.5em 1em;
+                border: none;
+            }
+            .sectionBlock {
+                flex-direction: column;
+            }
+            .sectionContent {
+                width: 100%;
+            }
+            .sectionContent .date {
+                padding-right: 2em;
+            }
+            .sectionName {
+                width: auto;
+            }
+            .largeFont {
+                font-size: 20px;
+            }
+            .smallFont {
+                font-size: 14px;
+            }
+        }
+
+        @media print {
+            body {
+                background: #FFFFFF;
+                margin: 0;
+            }
+            #resume {
+                margin: 0 auto;
+                padding: 0;
+                border: 0;
+                max-width: 100%;
+                background: #fff;
+                box-shadow: none;
+                -webkit-box-shadow: none;
+            }
+            a {
+                color: black;
+            }
+
+            .sectionName {
+                width: 14%;
+            }
+
+            .sectionContent {
+                width: 86%;
+            }
+        }
+    </style>
+    
+    </head>
+    <body>
+    
+    <div id="resume">
+        <Basics basics={mergedResume.data.basics}/>
+        <Education education={mergedResume.data.education}/>
+        <Skills skills={mergedResume.data.skills}/>
+        <Work work={mergedResume.data.work}/>
+        <Publications publications={mergedResume.data.publications}/>
+        <Projects projects={mergedResume.data.projects}/>
+        <Certificates certificates={mergedResume.data.certificates}/>
+        <Awards awards={mergedResume.data.awards}/>
+        <Volunteer volunteer={mergedResume.data.volunteer}/>
+        <Languages languages={mergedResume.data.languages}/>
+        <Interests interests={mergedResume.data.interests}/>
+        <References references={mergedResume.data.references}/>
+    </div>
+</html>
