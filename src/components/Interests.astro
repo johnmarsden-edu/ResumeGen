@@ -1,7 +1,7 @@
 ---
 const { interests } = Astro.props;
 ---
-<!-- Copyright 2024 vkcelik
+{/* Copyright 2024 vkcelik
     
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
     documentation files (the “Software”), to deal in the Software without restriction, including without limitation the
@@ -16,7 +16,7 @@ const { interests } = Astro.props;
     AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
--->
+ */}
 {interests.length > 0 && (
   <>
     <div class='sectionLine'></div>
@@ -27,13 +27,11 @@ const { interests } = Astro.props;
       <div class='sectionContent'>
         {interests.map((interest, index) => (
           <>
-            <span class='name'>{interest.name}</span>
+            <span class='name' set:html={interest.name}></span>
             {interest.keywords.length > 0 && (
-              <span class='keywords'>
-                <em>[{interest.keywords.join(', ')}]</em>
-              </span>
+              <span class='keywords' set:html={`<em>[${interest.keywords.join(', ')}]</em>`}></span>
             )}
-            {index < interests.length - 1 && <span>, </span>}
+            {index < interests.length - 1 && <span set:html=", "></span>}
           </>
         ))}
       </div>

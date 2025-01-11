@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "astro-pdf": "^1.6.0",
     "eslint": "^9.17.0",
     "eslint-config-prettier": "^9.1.0",
     "json-schema-to-zod": "^2.6.0",

@@ -1,8 +1,8 @@
 ---
-import { formatDate } from '../helpers/helpers.js';
+import Date from '../components/Date.astro';
 const { education } = Astro.props;
 ---
-<!-- Copyright 2024 vkcelik
+{/* Copyright 2024 vkcelik
     
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
     documentation files (the “Software”), to deal in the Software without restriction, including without limitation the
@@ -17,7 +17,7 @@ const { education } = Astro.props;
     AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
--->
+ */}
 <div class='sectionLine'></div>
 <div id='education' class="sectionBlock">
   <div class='sectionName'>
@@ -26,11 +26,11 @@ const { education } = Astro.props;
   <div class='sectionContent'>
     {education.map((educationItem, index) => (
       <div class='educationBlock'>
-        <span class='title'>{educationItem.institution}</span>
-        {formatDate(educationItem.endDate, 'Graduation Date: ')}
-        <div>
-          {educationItem.studyType} &ndash; {educationItem.area}{educationItem.gpa && `, GPA: ${educationItem.gpa}`}
-        </div>
+		<div class='blockHeader'>
+			<span class='title' set:html={educationItem.institution}></span>
+			<Date date={educationItem.endDate} prefix="Graduation Date: " />
+		</div>
+        <div set:html={`${educationItem.studyType} &ndash; ${educationItem.area}${educationItem.gpa ? `, GPA: ${educationItem.gpa}` : ''}`}></div>
         {index < education.length - 1 && <div class='separator'></div>}
       </div>
     ))}

@@ -1,8 +1,8 @@
 ---
-import { formatDateRange } from '../helpers/helpers.js';
+import DateRange from '../components/DateRange.astro';
 const { work } = Astro.props;
 ---
-<!-- Copyright 2024 vkcelik
+{/* Copyright 2024 vkcelik
     
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
     documentation files (the “Software”), to deal in the Software without restriction, including without limitation the
@@ -17,8 +17,8 @@ const { work } = Astro.props;
     AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
--->
-{work.length > 0 && (
+ */}
+{work && work.length > 0 && (
   <>
     <div class='sectionLine'></div>
     <div id='workBlock' class="sectionBlock">
@@ -29,19 +29,19 @@ const { work } = Astro.props;
         {work.map((job, index) => (
           <div class="jobBlock">
             <div class='blockHeader'>
-              {job.position && <span class="position">{job.position}</span>} | 
-              <a href={job.url}><span class='title'>{job.name}</span></a>
-              {formatDateRange(job.startDate, job.endDate)}
+              {job.position && <span class="position" set:html={job.position}></span>} | 
+              <a href={job.url}><span class='title' set:html={job.name}></span></a>
+              <DateRange startDate={job.startDate} endDate={job.endDate} />
             </div>
             {job.summary && (
               <div class="summary">
-                <p>{job.summary}</p>
+                <p set:html={job.summary}></p>
               </div>
             )}
             {job.highlights.length > 0 && (
               <ul class='highlights'>
                 {job.highlights.map(highlight => (
-                  <li>{highlight}</li>
+                  <li set:html={highlight}></li>
                 ))}
               </ul>
             )}

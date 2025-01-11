@@ -1,8 +1,8 @@
 ---
-import { formatDate } from '../helpers/helpers.js';
+import Date from '../components/Date.astro';
 const { certificates } = Astro.props;
 ---
-<!-- Copyright 2024 vkcelik
+{/* Copyright 2024 vkcelik
     
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
     documentation files (the “Software”), to deal in the Software without restriction, including without limitation the
@@ -17,7 +17,7 @@ const { certificates } = Astro.props;
     AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
--->
+ */}
 {certificates.length > 0 && (
   <>
     <div class='sectionLine'></div>
@@ -29,18 +29,18 @@ const { certificates } = Astro.props;
         {certificates.map((certificate, index) => (
           <>
             <div class='blockHeader'>
-              <span class='title'>{certificate.name}</span>
-              {certificate.issuer && <span class="issuer"> | {certificate.issuer}</span>}
-              {formatDate(certificate.date)}
+              <span class='title' set:html={certificate.name}></span>
+              {certificate.issuer && <span class="issuer" set:html={` | ${certificate.issuer}`}></span>}
+              <Date date={certificate.date} />
             </div>
             {certificate.url && (
               <div class='url'>
-                <a href={certificate.url}>{certificate.url}</a>
+                <a href={certificate.url} set:html={certificate.url}></a>
               </div>
             )}
             {certificate.summary && (
               <div class="summary">
-                <p>{certificate.summary}</p>
+                <p set:html={certificate.summary}></p>
               </div>
             )}
             {index < certificates.length - 1 && <div class='separator'></div>}

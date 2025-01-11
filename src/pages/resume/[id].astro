@@ -53,7 +53,7 @@ const mergedResume = mergician({ appendArrays: true })(...await getEntries(resum
     
     <title>{mergedResume.data.name}</title>
 
-    <style>
+    <style is:global>
         body {
             background: #EEEEEE;
             font: 13px "Times New Roman", Times, sans-serif;
@@ -241,17 +241,17 @@ const mergedResume = mergician({ appendArrays: true })(...await getEntries(resum
     <body>
     
     <div id="resume">
-        <Basics basics={mergedResume.data.basics}/>
-        <Education education={mergedResume.data.education}/>
-        <Skills skills={mergedResume.data.skills}/>
-        <Work work={mergedResume.data.work}/>
-        <Publications publications={mergedResume.data.publications}/>
-        <Projects projects={mergedResume.data.projects}/>
-        <Certificates certificates={mergedResume.data.certificates}/>
-        <Awards awards={mergedResume.data.awards}/>
-        <Volunteer volunteer={mergedResume.data.volunteer}/>
-        <Languages languages={mergedResume.data.languages}/>
-        <Interests interests={mergedResume.data.interests}/>
-        <References references={mergedResume.data.references}/>
+        {mergedResume.data.basics && <Basics basics={mergedResume.data.basics}/>}
+        {mergedResume.data.education && <Education education={mergedResume.data.education}/>}
+        {mergedResume.data.skills && <Skills skills={mergedResume.data.skills}/>}
+        {mergedResume.data.work && <Work work={mergedResume.data.work}/>}
+        {mergedResume.data.publications && <Publications publications={mergedResume.data.publications}/>}
+        {mergedResume.data.projects && <Projects projects={mergedResume.data.projects}/>}
+        {mergedResume.data.certificates && <Certificates certificates={mergedResume.data.certificates}/>}
+        {mergedResume.data.awards && <Awards awards={mergedResume.data.awards}/>}
+        {mergedResume.data.volunteer && <Volunteer volunteer={mergedResume.data.volunteer}/>}
+        {mergedResume.data.languages && <Languages languages={mergedResume.data.languages}/>}
+        {mergedResume.data.interests && <Interests interests={mergedResume.data.interests}/>}
+        {mergedResume.data.references && <References references={mergedResume.data.references}/>}
     </div>
 </html>

@@ -1,8 +1,8 @@
 ---
-import { formatDateRange } from '../helpers/helpers.js';
+import DateRange from '../components/DateRange.astro';
 const { projects } = Astro.props;
 ---
-<!-- Copyright 2024 vkcelik
+{/* Copyright 2024 vkcelik
     
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
     documentation files (the “Software”), to deal in the Software without restriction, including without limitation the
@@ -17,7 +17,7 @@ const { projects } = Astro.props;
     AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
--->
+ */}
 {projects.length > 0 && (
   <>
     <div class='sectionLine'></div>
@@ -29,23 +29,23 @@ const { projects } = Astro.props;
         {projects.map((project, index) => (
           <div class="projectBlock">
             <div class='blockHeader'>
-              <span class='title'>{project.name}</span>
-              {project.entity && <span class="entity"> | {project.entity}</span>}
-              {project.roles.length > 0 && (
-                <span class="roles"> | {project.roles.join(', ')}</span>
+              <span class='title' set:html={project.name}></span>
+              {project.entity && <span class="entity" set:html={` | ${project.entity}`}></span>}
+              {project.roles && project.roles.length > 0 && (
+                <span class="roles" set:html={` | ${project.roles.join(', ')}`}></span>
               )}
-              {formatDateRange(project.startDate, project.endDate)}
+              <DateRange startDate={project.startDate} endDate={project.endDate} />
             </div>
-            <div><a href={project.url}>{project.url}</a></div>
+            <div><a href={project.url} set:html={project.url}></a></div>
             {project.description && (
               <div class="description">
-                <p>{project.description}</p>
+                <p set:html={project.description}></p>
               </div>
             )}
             {project.highlights.length > 0 && (
               <ul class='highlights'>
                 {project.highlights.map(highlight => (
-                  <li>{highlight}</li>
+                  <li set:html={highlight}></li>
                 ))}
               </ul>
             )}

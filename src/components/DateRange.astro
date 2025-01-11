@@ -1,0 +1,9 @@
+---
+interface Props {
+    startDate: string,
+    endDate: string | null
+}
+import { formatDateString } from '../helpers/helpers.js';
+const { startDate, endDate = null } = Astro.props;
+---
+<span class="date">{formatDateString(startDate)} &ndash; {endDate ? formatDateString(endDate) : "Present"}</span>

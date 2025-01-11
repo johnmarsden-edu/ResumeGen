@@ -1,8 +1,8 @@
 ---
-import { formatDate } from '../helpers/helpers.js';
+import Date from '../components/Date.astro';
 const { awards } = Astro.props;
 ---
-<!-- Copyright 2024 vkcelik
+{/* Copyright 2024 vkcelik
     
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
     documentation files (the “Software”), to deal in the Software without restriction, including without limitation the
@@ -17,7 +17,7 @@ const { awards } = Astro.props;
     AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
--->
+ */}
 {awards.length > 0 && (
   <>
     <div class='sectionLine'></div>
@@ -29,15 +29,15 @@ const { awards } = Astro.props;
         {awards.map((award, index) => (
           <>
             <div class='blockHeader'>
-              <span class='title'>{award.title}</span>
-              {formatDate(award.date)}
+              <span class='title' set:html={award.title}></span>
+              <Date date={award.date} />
             </div>
             {award.awarder && (
-              <div class="awarder">{award.awarder}</div>
+              <div class="awarder" set:html={award.awarder}></div>
             )}
             {award.summary && (
               <div class="summary">
-                <p>{award.summary}</p>
+                <p set:html={award.summary}></p>
               </div>
             )}
             {index < awards.length - 1 && <div class='separator'></div>}

@@ -1,8 +1,8 @@
 ---
-import { formatDateRange } from '../helpers/helpers.js';
+import DateRange from '../components/DateRange.astro';
 const { volunteer } = Astro.props;
 ---
-<!-- Copyright 2024 vkcelik
+{/* Copyright 2024 vkcelik
     
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
     documentation files (the “Software”), to deal in the Software without restriction, including without limitation the
@@ -17,8 +17,8 @@ const { volunteer } = Astro.props;
     AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
--->
-{volunteer.length > 0 && (
+ */}
+{volunteer && volunteer.length > 0 && (
   <>
     <div class='sectionLine'></div>
     <div id='volunteer' class="sectionBlock">
@@ -28,20 +28,20 @@ const { volunteer } = Astro.props;
       <div class='sectionContent'>
         {volunteer.map((volunteerItem, index) => (
           <div class='blockHeader'>
-            <span class='title'>{volunteerItem.position}</span> | {volunteerItem.organization}
-            {formatDateRange(volunteerItem.startDate, volunteerItem.endDate)}
+            <span class='title' set:html={volunteerItem.position}></span> | <span set:html={volunteerItem.organization}></span>
+            <DateRange startDate={volunteerItem.startDate} endDate={volunteerItem.endDate} />
             {volunteerItem.url && (
-              <div class='url'><a href={volunteerItem.url}>{volunteerItem.url}</a></div>
+              <div class='url'><a href={volunteerItem.url} set:html={volunteerItem.url}></a></div>
             )}
             {volunteerItem.summary && (
               <div class="summary">
-                <p>{volunteerItem.summary}</p>
+                <p set:html={volunteerItem.summary}></p>
               </div>
             )}
             {volunteerItem.highlights.length > 0 && (
               <ul class='highlights'>
                 {volunteerItem.highlights.map(highlight => (
-                  <li>{highlight}</li>
+                  <li set:html={highlight}></li>
                 ))}
               </ul>
             )}

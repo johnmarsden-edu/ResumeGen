@@ -1,1 +1,0 @@
-{"version":3,"file":"formatDateString.js","sourceRoot":"","sources":["../../src/helpers/formatDateString.ts"],"names":[],"mappings":"AAAA,MAAM,UAAU,gBAAgB,CAAC,UAAkB;IAC/C,OAAO,IAAI,IAAI,CAAC,UAAU,CAAC,CAAC,kBAAkB,CAAC,IAAI,EAAE;QAC7C,SAAS,EAAE,OAAO;KACrB,CAAC,CAAC;AACX,CAAC"}

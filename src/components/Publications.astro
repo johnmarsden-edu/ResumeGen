@@ -1,8 +1,8 @@
 ---
-import { formatDate } from '../helpers/helpers.js';
+import Date from '../components/Date.astro';
 const { publications } = Astro.props;
 ---
-<!-- Copyright 2024 vkcelik
+{/* Copyright 2024 vkcelik
     
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
     documentation files (the “Software”), to deal in the Software without restriction, including without limitation the
@@ -17,7 +17,7 @@ const { publications } = Astro.props;
     AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
--->
+ */}
 {publications.length > 0 && (
   <>
     <div class='sectionLine'></div>
@@ -29,20 +29,20 @@ const { publications } = Astro.props;
         {publications.map((publication, index) => (
           <>
             <div class='blockHeader'>
-              <span class='title'>{publication.name}</span>
-              {formatDate(publication.releaseDate)}
+              <span class='title' set:html={publication.name}></span>
+              <Date date={publication.releaseDate} />
             </div>
             {publication.publisher && (
-              <div class="publisher">{publication.publisher}</div>
+              <div class="publisher" set:html={publication.publisher}></div>
             )}
             {publication.url && (
               <div class='url'>
-                <a href={publication.url}>{publication.url}</a>
+                <a href={publication.url} set:html={publication.url}></a>
               </div>
             )}
             {publication.summary && (
               <div class="summary">
-                <p>{publication.summary}</p>
+                <p set:html={publication.summary}></p>
               </div>
             )}
             {index < publications.length - 1 && <div class='separator'></div>}

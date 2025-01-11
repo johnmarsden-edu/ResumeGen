@@ -12,7 +12,7 @@ if (basics.location) {
   contactPieces.push({ klass: 'address', value: locationPieces.join(', ')});
 }
 ---
-<!-- Copyright 2024 vkcelik
+{/* Copyright 2024 vkcelik
     
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
     documentation files (the “Software”), to deal in the Software without restriction, including without limitation the
@@ -27,20 +27,18 @@ if (basics.location) {
     AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
--->
+ */}
 <div>
   <div class='nameBlock largeFont'>
-    <span class='name'>
-      {basics.name}{basics.label && ','}
-    </span>
-    {basics.label && <span class='label'>{basics.label}</span>}
+    <span class='name' set:html={`${basics.name}${basics.label ? ',' : ''}`}></span>
+    {basics.label && <span class='label' set:html={basics.label}></span>}
   </div>
   <div id='basicsBlock' class='smallFont'>
     <div class='contactBlock'>
       {contactPieces.map(({klass, value}, index) => (
         <>
           {index > 0 && <span class='divider'>|</span>}
-          <span class={klass}>{value}</span>
+          <span class={klass} set:html={value}></span>
         </>
       ))}
     </div>
@@ -50,7 +48,7 @@ if (basics.location) {
           <>
             {index > 0 && <span class='divider'>|</span>}
             <span class='url'>
-              <b><a href={profile.url}>{profile.network ? profile.network : profile.url}</a></b>
+              <b><a href={profile.url} set:html={profile.network ? profile.network : profile.url}></a></b>
             </span>
           </>
         )}
@@ -66,7 +64,7 @@ if (basics.location) {
           <span>SUMMARY</span>
         </div>
         <div class='sectionContent'>
-          <span>{basics.summary}</span>
+          <span set:html={basics.summary}></span>
         </div>
       </div>
     </>

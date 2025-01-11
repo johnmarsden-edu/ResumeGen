@@ -1,7 +1,7 @@
 ---
 const { references } = Astro.props;
 ---
-<!-- Copyright 2024 vkcelik
+{/* Copyright 2024 vkcelik
     
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
     documentation files (the “Software”), to deal in the Software without restriction, including without limitation the
@@ -16,7 +16,7 @@ const { references } = Astro.props;
     AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
--->
+ */}
 {references.length > 0 && (
   <>
     <div class='sectionLine'></div>
@@ -26,12 +26,9 @@ const { references } = Astro.props;
       </div>
       <div class="sectionContent">
         {references.map(reference => (
-          <blockquote class="reference">
-            {reference.reference}
+          <blockquote class="reference" set:html={reference.reference}>
             {reference.name && (
-              <div class="name">
-                — {reference.name}
-              </div>
+              <div class="name" set:html={`— ${reference.name}`}></div>
             )}
           </blockquote>
         ))}
