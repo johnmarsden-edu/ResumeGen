@@ -7,7 +7,7 @@
   outputs = inputs:
     inputs.flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = (import (inputs.nixpkgs) { inherit system; });
+        pkgs = inputs.nixpkgs.legacyPackages.${system};
       in {
         devShell = pkgs.mkShell {
           buildInputs=[
