@@ -1,9 +1,9 @@
 ---
 interface Props {
-    date: string;
-    prefix?: string;
+    date: string | undefined;
+    prefix?: string | undefined;
 }
 import { formatDateString } from '../helpers/helpers.js';
-const { date, prefix = "" } = Astro.props;
+const { date, prefix } = Astro.props;
 ---
-<span class="date">{prefix}{formatDateString(date)}</span>
+{date && <span class="date">{prefix}{formatDateString(date)}</span>}

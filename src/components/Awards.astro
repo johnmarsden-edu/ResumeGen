@@ -28,19 +28,21 @@ const { awards } = Astro.props;
       <div class='sectionContent'>
         {awards.map((award, index) => (
           <>
-            <div class='blockHeader'>
-              <span class='title' set:html={award.title}></span>
-              <Date date={award.date} />
-            </div>
-            {award.awarder && (
-              <div class="awarder" set:html={award.awarder}></div>
-            )}
-            {award.summary && (
-              <div class="summary">
-                <p set:html={award.summary}></p>
+            {index > 0 && <div class='separator'/>}
+            <div class="blockContent">
+              <div class='blockHeader'>
+                <span class='title' set:html={award.title}></span>
+                <Date date={award.date} />
               </div>
-            )}
-            {index < awards.length - 1 && <div class='separator'></div>}
+              {award.awarder && (
+                <div class="awarder" set:html={award.awarder}></div>
+              )}
+              {award.summary && (
+                <div class="summary">
+                  <p set:html={award.summary}></p>
+                </div>
+              )}
+            </div>
           </>
         ))}
       </div>
