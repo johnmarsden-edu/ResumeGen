@@ -21,17 +21,17 @@ const { awards } = Astro.props;
 {awards.length > 0 && (
   <>
     <div class='sectionLine'></div>
-    <div id='awards' class="sectionBlock">
-      <div class='sectionName'>
+    <section id='awards' class="sectionBlock">
+      <h2 class='sectionName'>
         <span>AWARDS</span>
-      </div>
+      </h2>
       <div class='sectionContent'>
         {awards.map((award, index) => (
           <>
             {index > 0 && <div class='separator'/>}
-            <div class="blockContent">
+            <article class="blockContent">
               <div class='blockHeader'>
-                <span class='title' set:html={award.title}></span>
+                <h3 class='headerTitle' set:html={award.title}></h3>
                 <Date date={award.date} />
               </div>
               {award.awarder && (
@@ -42,10 +42,10 @@ const { awards } = Astro.props;
                   <p set:html={award.summary}></p>
                 </div>
               )}
-            </div>
+            </article>
           </>
         ))}
       </div>
-    </div>
+    </section>
   </>
 )}

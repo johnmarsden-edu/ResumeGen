@@ -20,20 +20,36 @@ work:
     highlights:
       - Taught the fundamentals of <strong>Java</strong> to 40 students
       - >-
-        Built two autograders using <strong>JUnit 5</strong> to autograde
+        Built two autograders using <strong>GradeScope</strong> and <strong>JUnit 5</strong> to autograde
         student code submissions
       - >-
         Designed and administered three exams to validate students' learning
         progress
+      - >-
+        Used the <strong>Moodle</strong> LMS course page to share lecture slides, communicate assignments,
+        and provide resources
   - name: NCSU
     position: Teaching Assistant
     url: 'https://www.csc.ncsu.edu/'
     startDate: 2020-08
+    endDate: '2024-12-15'
     highlights:
       - >-
         Helped 300+ students navigate the complexities of multi-project
         <strong>Java</strong> codebases
-      - Validated 600+ student algorithmic analyses and algorithm designs
+      - Validated 700+ student algorithm analyses and algorithm designs
       - >-
-        Graded 300+ student algorithms using common data structures, including
-        stacks, graphs, etc.
+        Graded 400+ student algorithms in <strong>GradeScope</strong> using common data structures, 
+        including stacks, graphs, etc.
+  - name: ACU
+    position: Teaching Assistant
+    url: 'https://www.acu.edu/'
+    startDate: 2017-08
+    endDate: 2020-05
+    highlights:
+      - >-
+        Tutored 70+ students on <strong>C++</strong> programming concepts, including the basics, 
+        pointers, memory management, and object-oriented programming
+      - >-
+        Graded 200+ student <strong>C++</strong> algorithm implementations 
+        using common data structures, including queues, graphs, trees, etc.

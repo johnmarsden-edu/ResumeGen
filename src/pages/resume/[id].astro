@@ -25,7 +25,17 @@ const { resume } = Astro.props;
 
 import {mergician} from "mergician";
 
-const mergedResume = mergician({ appendArrays: true })(...await getEntries(resume.data.sources));
+const entries = await getEntries(resume.data.sources);
+const merger = mergician({ 
+    appendArrays: true 
+    
+});
+let mergedResume;
+if (entries.length === 1) {
+    mergedResume = entries[0];
+} else {
+    mergedResume = merger(...entries);
+}
 ---
 
 <!-- Copyright 2024 vkcelik
@@ -51,14 +61,31 @@ const mergedResume = mergician({ appendArrays: true })(...await getEntries(resum
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
     
-    <title>{mergedResume.data.name}</title>
+    <title>{resume.data.name}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css">
 
     <style is:global>
+        @page {
+            size: A4;
+        }
+
+        /* Remove h1 through h6 styling */
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            padding: 0;
+            font-size: inherit;
+            font-weight: normal;
+            display: flex;
+        }
+
         body {
             background: #EEEEEE;
             font: 13px "Times New Roman", Times, sans-serif;
             line-height: 1.4;
             margin: 40px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         em {
@@ -78,13 +105,13 @@ const mergedResume = mergician({ appendArrays: true })(...await getEntries(resum
         }
 
         #resume {
-            margin: 0 auto;
-            max-width: 600px;
-            padding: 1in 1in;
+            padding: .75in .75in;
             background: #fff;
             border: 1px solid #ccc;
             box-shadow: 2px 2px 4px #aaa;
-            -webkit-box-shadow: 2px 2px 4px #aaa;
+            -webkit-box-shadow: 2px 2px 4px #aaa; /* Keeping this for compatibility with older browsers */
+            display: flex;
+            flex-direction: column;
         }
 
         .nameBlock, .contactBlock, .profilesBlock {
@@ -94,10 +121,33 @@ const mergedResume = mergician({ appendArrays: true })(...await getEntries(resum
             justify-content: center;
         }
 
+        .skillBlock {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: flex-start;
+        }
+
+        .skillSeparator {
+            margin-right: 3px;
+        }
+
+        .headerTitle {
+            font-weight: bold;
+            margin-right: 3px;
+        }
+
+        .blockHeader {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         .coursesList {
             width: 28%;
-            vertical-align: top;
-            display: inline-block;
+            display: flex;
+            flex-direction: column;
         }
 
         .largeFont {
@@ -111,18 +161,19 @@ const mergedResume = mergician({ appendArrays: true })(...await getEntries(resum
         .sectionBlock {
             display: flex;
             width: 100%;
+            flex-direction: row;
         }
 
         .sectionName {
             width: 16%;
-            vertical-align: top;
-            display: inline-block;
+            display: flex;
+            flex-direction: column;
         }
 
         .sectionContent {
             width: 84%;
-            vertical-align: top;
-            display: inline-block;
+            display: flex;
+            flex-direction: column;
         }
 
         .sectionContent ul {
@@ -136,7 +187,9 @@ const mergedResume = mergician({ appendArrays: true })(...await getEntries(resum
         }
 
         .sectionContent .date {
-            float: right;
+            display: flex;
+            flex: auto;
+            justify-content: flex-end;
         }
 
         .sectionContent .separator {
@@ -151,6 +204,8 @@ const mergedResume = mergician({ appendArrays: true })(...await getEntries(resum
             border-color: #CFCFCF;
             margin-top: 3px;
             margin-bottom: 7px;
+            margin-left: 0;
+            margin-right: 0;
         }
 
         .divider {
@@ -175,7 +230,6 @@ const mergedResume = mergician({ appendArrays: true })(...await getEntries(resum
             margin: 0 0 1em;
         }
 
-
         /* Media Queries */
 
         @media only screen and (max-width: 40em) {
@@ -184,8 +238,6 @@ const mergedResume = mergician({ appendArrays: true })(...await getEntries(resum
                 font-size: 14px;
             }
             #resume {
-                margin: 0 auto;
-                max-width: 600px;
                 padding: 0.5em 1em;
                 border: none;
             }
@@ -201,12 +253,12 @@ const mergedResume = mergician({ appendArrays: true })(...await getEntries(resum
             .sectionName {
                 width: auto;
             }
-            .largeFont {
+            /* .largeFont {
                 font-size: 20px;
             }
             .smallFont {
                 font-size: 14px;
-            }
+            } */
         }
 
         @media print {
@@ -215,32 +267,31 @@ const mergedResume = mergician({ appendArrays: true })(...await getEntries(resum
                 margin: 0;
             }
             #resume {
-                margin: 0 auto;
-                padding: 0;
+                padding: .75in;
                 border: 0;
                 max-width: 100%;
                 background: #fff;
                 box-shadow: none;
-                -webkit-box-shadow: none;
+                -webkit-box-shadow: none; /* Keeping this for compatibility with older browsers */
             }
-            a {
+            /* a {
                 color: black;
-            }
+            } */
 
-            .sectionName {
+            /* .sectionName {
                 width: 14%;
             }
 
             .sectionContent {
                 width: 86%;
-            }
+            } */
         }
     </style>
     
     </head>
-    <body>
+    <body class="A4">
     
-    <div id="resume">
+    <div id="resume" class="sheet">
         {mergedResume.data.basics && <Basics basics={mergedResume.data.basics}/>}
         {mergedResume.data.education && <Education education={mergedResume.data.education}/>}
         {mergedResume.data.skills && <Skills skills={mergedResume.data.skills}/>}

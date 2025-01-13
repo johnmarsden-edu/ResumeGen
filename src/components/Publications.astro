@@ -21,17 +21,17 @@ const { publications } = Astro.props;
 {publications.length > 0 && (
   <>
     <div class='sectionLine'></div>
-    <div id='publications'>
-      <div class='sectionName'>
+    <section id='publications'>
+      <h2 class='sectionName'>
         <span>PUBLICATIONS</span>
-      </div>
+      </h2>
       <div class='sectionContent'>
         {publications.map((publication, index) => (
           <>
-            <div class='blockHeader'>
-              <span class='title' set:html={publication.name}></span>
+            <article class='blockHeader'>
+              <h3 class='headerTitle' set:html={publication.name}></h3>
               <Date date={publication.releaseDate} />
-            </div>
+            </article>
             {publication.publisher && (
               <div class="publisher" set:html={publication.publisher}></div>
             )}
@@ -49,6 +49,6 @@ const { publications } = Astro.props;
           </>
         ))}
       </div>
-    </div>
+    </section>
   </>
 )}

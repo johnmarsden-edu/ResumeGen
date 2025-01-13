@@ -20,14 +20,14 @@ const { languages } = Astro.props;
 {languages.length > 0 && (
   <>
     <div class='sectionLine'></div>
-    <div id='languages' class="sectionBlock">
-      <div class='sectionName'>
+    <section id='languages' class="sectionBlock">
+      <h2 class='sectionName'>
         <span>LANGUAGES</span>
-      </div>
+      </h2>
       <div class='sectionContent'>
         {languages.map((language, index) => (
           <>
-            <span class='language' set:html={language.language}></span>
+            <h3 class='headerTitle' set:html={language.language}></span>
             {language.fluency && (
               <span class='fluency' set:html={`<em>(${language.fluency})</em>`}></span>
             )}
@@ -35,6 +35,6 @@ const { languages } = Astro.props;
           </>
         ))}
       </div>
-    </div>
+    </section>
   </>
 )}

@@ -21,14 +21,14 @@ const { volunteer } = Astro.props;
 {volunteer && volunteer.length > 0 && (
   <>
     <div class='sectionLine'></div>
-    <div id='volunteer' class="sectionBlock">
-      <div class='sectionName'>
+    <section id='volunteer' class="sectionBlock">
+      <h2 class='sectionName'>
         <span>VOLUNTEERING</span>
-      </div>
+      </h2>
       <div class='sectionContent'>
         {volunteer.map((volunteerItem, index) => (
-          <div class='blockHeader'>
-            <span class='title' set:html={volunteerItem.position}></span> | <span set:html={volunteerItem.organization}></span>
+          <article class='blockHeader'>
+            <h3 class='headerTitle' set:html={volunteerItem.position}></h3><span class="divider">|</span><span set:html={volunteerItem.organization}></span>
             <DateRange startDate={volunteerItem.startDate} endDate={volunteerItem.endDate} />
             {volunteerItem.url && (
               <div class='url'><a href={volunteerItem.url} set:html={volunteerItem.url}></a></div>
@@ -46,9 +46,9 @@ const { volunteer } = Astro.props;
               </ul>
             )}
             {index < volunteer.length - 1 && <div class='separator'></div>}
-          </div>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   </>
 )}

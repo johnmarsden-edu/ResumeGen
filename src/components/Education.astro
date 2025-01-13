@@ -19,22 +19,22 @@ const { education } = Astro.props;
     SOFTWARE.
  */}
 <div class='sectionLine'></div>
-<div id='education' class="sectionBlock">
-  <div class='sectionName'>
+<section id='education' class="sectionBlock">
+  <h2 class='sectionName'>
     <span>EDUCATION</span>
-  </div>
+  </h2>
   <div class='sectionContent'>
     {education.map((educationItem, index) => (
       <>
         {index > 0 && <div class='separator'></div>}
-        <div class='educationBlock'>
+        <article class='educationBlock'>
           <div class='blockHeader'>
-            <span class='title' set:html={educationItem.institution}/>
+            <h3 class='headerTitle' set:html={educationItem.institution}></h3>
             <Date date={educationItem.endDate} prefix="Graduation Date: " />
           </div>
-          <div set:html={`${educationItem.studyType} &ndash; ${educationItem.area}${educationItem.gpa ? `, GPA: ${educationItem.gpa}` : ''}`}/>
-        </div>
+          <div set:html={`${educationItem.studyType} &ndash; ${educationItem.area}${educationItem.gpa ? `, GPA: ${educationItem.gpa}` : ''}`}></div>
+        </article>
       </>
     ))}
   </div>
-</div>
+</section>

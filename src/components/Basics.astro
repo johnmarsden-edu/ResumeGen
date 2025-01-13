@@ -30,7 +30,8 @@ if (basics.location) {
  */}
 <div>
   <div class='nameBlock largeFont'>
-    <span class='name' set:html={`${basics.name}${basics.label ? ',' : ''}`}></span>
+	<!-- TODO: move label into the header. -->
+    <h1 class='name' set:html={`${basics.name}${basics.label ? ',' : ''}`}></h1>
     {basics.label && <span class='label' set:html={basics.label}></span>}
   </div>
   <div id='basicsBlock' class='smallFont'>
@@ -42,9 +43,9 @@ if (basics.location) {
         </>
       ))}
     </div>
+	<div class='profilesBlock'>
     {basics.profiles.map((profile, index) => (
-      <div class='profilesBlock'>
-        {profile.url && (
+        <>{profile.url && (
           <>
             {index > 0 && <span class='divider'>|</span>}
             <span class='url'>
@@ -52,21 +53,22 @@ if (basics.location) {
             </span>
           </>
         )}
-      </div>
+		</>
     ))}
+    </div>
   </div>
 
   {basics.summary && (
     <>
       <div class='sectionLine'></div>
-      <div id='summaryBlock' class="sectionBlock">
-        <div class='sectionName'>
+      <section id='summaryBlock' class="sectionBlock">
+        <h2 class='sectionName'>
           <span>SUMMARY</span>
-        </div>
+        </h2>
         <div class='sectionContent'>
           <span set:html={basics.summary}></span>
         </div>
-      </div>
+      </section>
     </>
   )}
 </div>

@@ -35,35 +35,37 @@ work.sort((fst: { endDate: string | undefined}, snd: {endDate: string | undefine
  */}
 {work && work.length > 0 && (
   <>
-    <div class='sectionLine'></div>
-    <div id='workBlock' class="sectionBlock">
-      <div class='sectionName'>
-        <span>EXPERIENCE</span>
-      </div>
+    <hr class='sectionLine' />
+    <section id='workBlock' class="sectionBlock">
+      <header class='sectionName'>
+        <h2>EXPERIENCE</h2>
+      </header>
       <div class='sectionContent'>
         {work.map((job, index) => (
-          <div class="jobBlock">
-            <div class='blockHeader'>
-              {job.position && <span class="position" set:html={job.position}></span>} | 
-              <a href={job.url}><span class='title' set:html={job.name}></span></a>
+          <article class="jobBlock">
+            <header class='blockHeader'>
+			  <h3 class='headerTitle'>
+				{job.position && <><span class="position" set:html={job.position}></span><span class="divider">|</span></>}
+                <a href={job.url}><span class='title' set:html={job.name}></span></a>
+			  </h3>
               <DateRange startDate={job.startDate} endDate={job.endDate} />
-            </div>
+            </header>
             {job.summary && (
               <div class="summary">
                 <p set:html={job.summary}></p>
               </div>
             )}
-            {job.highlights.length > 0 && (
+            {job.highlights && job.highlights.length > 0 && (
               <ul class='highlights'>
                 {job.highlights.map(highlight => (
                   <li set:html={highlight}></li>
                 ))}
               </ul>
             )}
-            {index < work.length - 1 && <div class='separator'></div>}
-          </div>
+            {index < work.length - 1 && <hr class='separator' />}
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   </>
 )}

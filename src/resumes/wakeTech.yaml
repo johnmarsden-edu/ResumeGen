@@ -1,0 +1,7 @@
+name: 'Wake Tech'
+sources:
+  - base_resume
+  - skills/teaching
+  - skills/programming_languages
+  - teaching/teaching
+  - swe/teaching

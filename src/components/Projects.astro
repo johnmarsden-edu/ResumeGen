@@ -21,18 +21,18 @@ const { projects } = Astro.props;
 {projects.length > 0 && (
   <>
     <div class='sectionLine'></div>
-    <div id='projectsBlock' class="sectionBlock">
-      <div class='sectionName'>
+    <section id='projectsBlock' class="sectionBlock">
+      <h2 class='sectionName'>
         <span>PROJECTS</span>
-      </div>
+      </h2>
       <div class='sectionContent'>
         {projects.map((project, index) => (
-          <div class="projectBlock">
+          <article class="projectBlock">
             <div class='blockHeader'>
-              <span class='title' set:html={project.name}></span>
-              {project.entity && <span class="entity" set:html={` | ${project.entity}`}></span>}
+              <h3 class='headerTitle' set:html={project.name}></h3>
+              {project.entity && <><span class="divider">|</span><span class="entity" set:html={project.entity}></span></>}
               {project.roles && project.roles.length > 0 && (
-                <span class="roles" set:html={` | ${project.roles.join(', ')}`}></span>
+                <><span class="divider">|</span><span class="roles" set:html={project.roles.join(', ')}></span></>
               )}
               <DateRange startDate={project.startDate} endDate={project.endDate} />
             </div>
@@ -50,9 +50,9 @@ const { projects } = Astro.props;
               </ul>
             )}
             {index < projects.length - 1 && <div class='separator'></div>}
-          </div>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   </>
 )}

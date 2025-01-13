@@ -1,0 +1,23 @@
+projects:
+  - name: Machine Learning on Intermediate Languages
+    highlights:
+      - >-
+        Created a code embedding machine learning model to convert control-flow
+        graphs (CFG) to vectors
+      - >-
+        Wrote a custom intermediate language representation to represent CFGs
+        for embedding
+      - Reimplemented the deepwalk learning algorithm for distributed learning
+      - >-
+        Constructed an attention network for using CFG embeddings to predict
+        student performance
+    keywords:
+      - Cap'n Proto
+      - Pytorch
+      - Rust
+      - Java
+      - Docker
+      - Bash
+      - FLOSS
+      - Machine Learning
+      - Research

@@ -1,0 +1,16 @@
+projects:
+  - name: General Purpose Discord Bot
+    description: ''
+    highlights:
+      - 'Built Norm: A general-purpose Discord bot written with the .NET runtime'
+      - Implemented an HTML to Discord Markdown transpiler
+      - >-
+        Built an event announcement system that supported timezone adjustment
+        and role-based announcements
+      - Created an OMDB integration to allow for users to plan movie nights
+    website: 'https://github.com/Handy-Hangout-Studios/Norm'
+    keywords:
+      - 'C#'
+      - Postgres
+      - DSharpPlus
+      - FLOSS

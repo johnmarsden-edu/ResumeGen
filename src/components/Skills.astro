@@ -19,32 +19,32 @@ const { skills } = Astro.props;
  */}
 {skills.length > 0 && (
   <>
-    <div class='sectionLine'></div>
-    <div id='skills' class="sectionBlock">
-      <div class='sectionName'>
-        <span>SKILLS</span>
-      </div>
+    <hr class='sectionLine' />
+    <section id='skills' class="sectionBlock">
+      <header class='sectionName'>
+        <h2>SKILLS</h2>
+      </header>
       <div class='sectionContent'>
         {skills.map(skill => (
-          <div class='skillBlock'>
-            <span class='title' set:html={`${skill.name}${skill.level ? ` <em>(${skill.level})</em>` : ''}: `}></span>
-            {skill.keywords.length > 0 && (
-              <>
-                {skill.keywords.map((keyword, index) => (
-                  <span set:html={`${keyword}${index < skill.keywords.length - 1 ? ', ' : ''}`}></span>
-                ))}
-              </>
-            )}
-            {skill.details && skill.details.length > 0 && (
-              <>
-                {skill.details.map((detail, index) => (
-                  <span set:html={`${detail.text}${detail.comment ? `<em>(${detail.comment})</em>` : ''}${index < skill.details.length - 1 ? ', ' : ''}`}></span>
-                ))}
-              </>
-            )}
-          </div>
+          <article class='skillBlock'>
+            <h3 class='headerTitle' set:html={`${skill.name}${skill.level ? ` <em>(${skill.level})</em>` : ''}: `}></h3>
+			{skill.keywords.length > 0 && (
+			<>
+				{skill.keywords.map((keyword, index) => (
+					<>{index > 0 && <span class="skillSeparator">,</span>}<span class="skill" set:html={keyword}/></>
+				))}
+			</>
+			)}
+			{skill.details && skill.details.length > 0 && (
+			<>
+				{skill.details.map((detail, index) => (
+					<>{index > 0 && <span class="skillSeparator">,</span>}<span class="skillDetails" set:html={`${detail.text}${detail.comment ? `<em>(${detail.comment})</em>` : ''}`}/></>
+				))}
+			</>
+			)}
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   </>
 )}

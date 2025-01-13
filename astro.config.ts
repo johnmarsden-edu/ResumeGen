@@ -38,7 +38,7 @@ export default defineConfig({
                         path: pathname.replace('/resume/', '/generated/').replace(/\/$/, '.pdf'),
                         pdf:{
                         format: 'A4',
-                        margin: { top: '.75in', right: '.75in', bottom: '.75in', left: '.75in' },
+                        margin: { top: '0', right: '0', bottom: '0', left: '0' },
                         printBackground: true,
                         tagged: true,
                         outline: true,

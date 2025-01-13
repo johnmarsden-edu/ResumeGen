@@ -20,10 +20,10 @@ const { references } = Astro.props;
 {references.length > 0 && (
   <>
     <div class='sectionLine'></div>
-    <div id="references">
-      <div class='sectionName'>
+    <section id="references">
+      <h2 class='sectionName'>
         <span>REFERENCES</span>
-      </div>
+      </h2>
       <div class="sectionContent">
         {references.map(reference => (
           <blockquote class="reference" set:html={reference.reference}>
@@ -33,6 +33,6 @@ const { references } = Astro.props;
           </blockquote>
         ))}
       </div>
-    </div>
+    </section>
   </>
 )}

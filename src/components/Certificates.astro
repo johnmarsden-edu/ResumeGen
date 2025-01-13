@@ -21,18 +21,18 @@ const { certificates } = Astro.props;
 {certificates.length > 0 && (
   <>
     <div class='sectionLine'></div>
-    <div id='certificates'>
-      <div class='sectionName'>
+    <section id='certificates'>
+      <h2 class='sectionName'>
         <span>CERTIFICATES</span>
-      </div>
+      </h2>
       <div class='sectionContent'>
         {certificates.map((certificate, index) => (
           <>
-            <div class='blockHeader'>
-              <span class='title' set:html={certificate.name}></span>
-              {certificate.issuer && <span class="issuer" set:html={` | ${certificate.issuer}`}></span>}
+            <article class='blockHeader'>
+              <h3 class='headerTitle' set:html={certificate.name}></h3>
+              {certificate.issuer && <><span class="divider">|</span><span class="issuer" set:html={certificate.issuer}></span></>}
               <Date date={certificate.date} />
-            </div>
+            </article>
             {certificate.url && (
               <div class='url'>
                 <a href={certificate.url} set:html={certificate.url}></a>
@@ -47,6 +47,6 @@ const { certificates } = Astro.props;
           </>
         ))}
       </div>
-    </div>
+    </section>
   </>
 )}

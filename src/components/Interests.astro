@@ -20,14 +20,14 @@ const { interests } = Astro.props;
 {interests.length > 0 && (
   <>
     <div class='sectionLine'></div>
-    <div id='interests' class="sectionBlock">
-      <div class='sectionName'>
+    <section id='interests' class="sectionBlock">
+      <h2 class='sectionName'>
         <span>INTERESTS</span>
-      </div>
+      </h2>
       <div class='sectionContent'>
         {interests.map((interest, index) => (
           <>
-            <span class='name' set:html={interest.name}></span>
+            <h3 class='name' set:html={interest.name}></span>
             {interest.keywords.length > 0 && (
               <span class='keywords' set:html={`<em>[${interest.keywords.join(', ')}]</em>`}></span>
             )}
@@ -35,6 +35,6 @@ const { interests } = Astro.props;
           </>
         ))}
       </div>
-    </div>
+    </section>
   </>
 )}
