@@ -1,7 +1,9 @@
-name: 'Wake Tech'
+name: 'Instructor'
 sources:
   - base_resume
   - skills/teaching
   - skills/programming_languages
   - teaching/teaching
   - swe/teaching
+  - teaching/research
+  - skills/devops

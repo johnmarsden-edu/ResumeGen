@@ -1,16 +1,16 @@
 projects:
-  - name: Machine Learning on Intermediate Languages
+  - name: Control Flow Graph Compiler
     highlights:
       - >-
-        Created a code embedding machine learning model to convert control-flow
-        graphs (CFG) to vectors
+        Implemented a custom intermediate language representation with the
+        necessary semantics for converting programs to control flow graphs (CFG)
       - >-
-        Wrote a custom intermediate language representation to represent CFGs
-        for embedding
-      - Reimplemented the deepwalk learning algorithm for distributed learning
+        Created a compiler in <strong>Rust</strong> to convert the custom intermediate language to a 
+        statement level control flow graph
       - >-
-        Constructed an attention network for using CFG embeddings to predict
-        student performance
+        Implemented a parallelized TCP server on top of the compiler
+        to handle over two hundred thousand compilations necessary for
+        training a machine learning model
     keywords:
       - Cap'n Proto
       - Pytorch

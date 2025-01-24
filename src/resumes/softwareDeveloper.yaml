@@ -1,0 +1,13 @@
+name: 'Software Developer'
+sources:
+  - base_resume
+  - skills/programming_languages
+  - skills/databases
+  - skills/devops
+  - skills/fullstack
+  - teaching/swe
+  - swe/swe
+  - projects/swe/norm
+  - projects/swe/recognizers
+  - research/ml
+  - research/static_analysis
