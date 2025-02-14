@@ -8,9 +8,9 @@ projects:
         Created a compiler in <strong>Rust</strong> to convert the custom intermediate language to a 
         statement level control flow graph
       - >-
-        Implemented a parallelized TCP server on top of the compiler
+        Implemented a parallelized <strong>TCP</strong> server on top of the compiler
         to handle over two hundred thousand compilations necessary for
-        training a machine learning model
+        training a <strong>machine-learning</strong> model
     keywords:
       - Cap'n Proto
       - Pytorch

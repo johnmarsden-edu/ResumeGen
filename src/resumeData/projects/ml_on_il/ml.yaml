@@ -2,7 +2,7 @@ projects:
   - name: Machine Learning on Intermediate Languages
     highlights:
       - >-
-        Created a code embedding machine learning model to convert control-flow
+        Trained a code embedding machine learning model to convert control-flow
         graphs (CFG) to vectors
       - Reimplemented the deepwalk learning algorithm for distributed learning
       - >-

@@ -27,19 +27,25 @@ const { resume } = Astro.props;
 import {mergician} from "mergician";
 
 const root = await getEntry(resume.data.root);
-const entries: CollectionEntry<'resumeData'>[] = [root];
+let entries: CollectionEntry<'resumeData'>[] = [root];
 
-async function getSources(node: CollectionEntry<'resumeData'>) {
+async function getSources(node: CollectionEntry<'resumeData'>, entries: CollectionEntry<'resumeData'>[] = []) {
+    console.log(node);
+    console.log(entries);
     if (node.data.sources) {
         const children = await getEntries(node.data.sources);
+        console.log(children);
         for (const source of children) {
             entries.push(source);
-            await getSources(source);
+            await getSources(source, entries);
         }
     }
+    return entries;
 }
 
-getSources(root);
+entries = await getSources(root);
+
+console.log(entries);
 
 const merger = mergician({ 
     appendArrays: true 
@@ -176,17 +182,23 @@ if (entries.length === 1) {
         .sectionBlock {
             display: flex;
             width: 100%;
-            flex-direction: row;
-        }
-
-        .sectionName {
-            width: 16%;
-            display: flex;
             flex-direction: column;
         }
 
+        .sectionName {
+            /* width: 16%; */
+            font-weight: bold;
+            display: flex;
+            flex-direction: row;
+            align-content: flex-start;
+            background-color: #000;
+            color: #fff;
+            padding: .2em .4em;
+            margin-top: .2em;
+        }
+
         .sectionContent {
-            width: 84%;
+            /* width: 84%; */
             display: flex;
             flex-direction: column;
         }
@@ -214,13 +226,14 @@ if (entries.length === 1) {
         }
 
         .sectionLine {
-            border-style: dashed;
-            border-width: 1px;
-            border-color: #CFCFCF;
-            margin-top: 3px;
-            margin-bottom: 7px;
+            /* border-style: dashed;
+            border-width: 1px; */
+            border-color: #fff;
+            margin-top: 1px;
+            margin-bottom: 1px;
             margin-left: 0;
             margin-right: 0;
+            display: none;
         }
 
         .divider {

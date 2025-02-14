@@ -5,11 +5,10 @@ projects:
         Designed a wrapper library around the Microsoft.Recognizers.Text library
         adding static type support
       - Created an extensible structure for supporting future recognizers
-      - Created a DateTime recognizer wrapper
       - >-
-        Authored a public and private documented library API for ease of future
+        Authored a documented library API for ease of future
         extension and contribution
-    website: 'https://github.com/Handy-Hangout-Studios/Recognizers.Text.Wrapper'
+    website: 'https://github.com/johnmarsden-dev/Recognizers.Text.Wrapper'
     keywords:
       - 'C#'
       - Library

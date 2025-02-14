@@ -2,13 +2,11 @@ projects:
   - name: General Purpose Discord Bot
     description: ''
     highlights:
-      - 'Built Norm: A general-purpose Discord bot written with the .NET runtime'
-      - Implemented an HTML to Discord Markdown transpiler
-      - >-
-        Built an event announcement system that supported timezone adjustment
-        and role-based announcements
-      - Created an OMDB integration to allow for users to plan movie nights
-    website: 'https://github.com/Handy-Hangout-Studios/Norm'
+      - Used <strong>dependency injection</strong> to maintain separation of concerns and allow for easy testing
+      - Implemented an <strong>HTML</strong> to Discord Markdown <strong>transpiler</strong> to convert <strong>RSS</strong> feed posts to Discord embeds
+      - Built an event announcement system that supported <strong>timezones</strong> and role-based announcements
+      - Wrote an OMDB API client using <strong>System.Text.Json</strong> and <strong>RestClient</strong> to allow users to plan movie nights with my designed command flow
+    website: 'https://github.com/johnmarsden-dev/Norm'
     keywords:
       - 'C#'
       - Postgres

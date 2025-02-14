@@ -1,13 +1,13 @@
 sources:
   - base_resume
-  - skills/all
+  - skills/databases
+  - skills/devops
+  - skills/fullstack
+  - skills/programming_languages
   - jobs/acu/report_specialist/swe
-  - jobs/acu/teaching_assistant/swe
-  - jobs/acu/tutor/swe
   - jobs/faithlife/swe
   - jobs/ncsu/instructor/cs1/swe
   - jobs/ncsu/instructor/cs2/swe
-  - jobs/ncsu/phd_student/swe
   - jobs/ncsu/teaching_assistant/swe
   - jobs/secmation/swe
   - projects/cfgc/cfgc
