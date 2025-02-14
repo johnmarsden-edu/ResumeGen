@@ -1,0 +1,15 @@
+sources:
+  - base_resume
+  - skills/all
+  - jobs/acu/report_specialist/swe
+  - jobs/acu/teaching_assistant/swe
+  - jobs/acu/tutor/swe
+  - jobs/faithlife/swe
+  - jobs/ncsu/instructor/swe
+  - jobs/ncsu/phd_student/swe
+  - jobs/ncsu/teaching_assistant/swe
+  - jobs/secmation/swe
+  - projects/cfgc/cfgc
+  - projects/ml_on_il/ml
+  - projects/norm/norm
+  - projects/recognizers/recognizers

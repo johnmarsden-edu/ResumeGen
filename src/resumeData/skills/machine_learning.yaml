@@ -1,11 +1,16 @@
 skills:
-  - name: Frameworks
-    keywords:
-      - Pytorch
-      - Tensorflow
   - name: Machine Learning
     keywords:
-      - Natural Language Processing
       - Attention Networks
-      - Neural Networks
       - Graph Neural Networks
+      - Keras
+      - Matplotlib
+      - Natural Language Processing
+      - Neural Networks
+      - Numpy
+      - Pandas
+      - Pytorch      
+      - R
+      - Scikit-learn
+      - Spacy
+      - Tensorflow

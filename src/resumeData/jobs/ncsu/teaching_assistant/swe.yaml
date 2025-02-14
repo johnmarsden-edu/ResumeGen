@@ -1,0 +1,14 @@
+work:
+  - name: NCSU
+    position: Teaching Assistant
+    url: 'https://www.csc.ncsu.edu/'
+    startDate: 2020-08
+    endDate: 2024-12
+    highlights:
+      - >-
+        Helped 300+ students navigate the complexities of multi-project
+        <strong>Java</strong> codebases
+      - Validated 700+ student algorithm analyses and algorithm designs
+      - >-
+        Graded 400+ student algorithms using common data structures, 
+        including stacks, graphs, etc.

@@ -1,4 +1,5 @@
 ---
+import { getEntry } from "astro:content";
 import Awards from "../../components/Awards.astro";
 import Basics from "../../components/Basics.astro";
 import Certificates from "../../components/Certificates.astro";
@@ -11,7 +12,7 @@ import References from "../../components/References.astro";
 import Skills from "../../components/Skills.astro";
 import Volunteer from "../../components/Volunteer.astro";
 import Work from "../../components/Work.astro";
-import { getCollection, getEntries } from "astro:content";
+import { getCollection, getEntries, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
     const resumes = await getCollection('resumes'); 
@@ -25,16 +26,29 @@ const { resume } = Astro.props;
 
 import {mergician} from "mergician";
 
-const entries = await getEntries(resume.data.sources);
+const root = await getEntry(resume.data.root);
+const entries: CollectionEntry<'resumeData'>[] = [root];
+
+async function getSources(node: CollectionEntry<'resumeData'>) {
+    if (node.data.sources) {
+        const children = await getEntries(node.data.sources);
+        for (const source of children) {
+            entries.push(source);
+            await getSources(source);
+        }
+    }
+}
+
+getSources(root);
+
 const merger = mergician({ 
     appendArrays: true 
-    
 });
 let mergedResume;
 if (entries.length === 1) {
-    mergedResume = entries[0];
+    mergedResume = entries[0].data;
 } else {
-    mergedResume = merger(...entries);
+    mergedResume = merger(...entries.map(entry => entry.data));
 }
 ---
 
@@ -293,17 +307,17 @@ if (entries.length === 1) {
     <body class="A4">
     
     <div id="resume" class="sheet">
-        {mergedResume.data.basics && <Basics basics={mergedResume.data.basics}/>}
-        {mergedResume.data.education && <Education education={mergedResume.data.education}/>}
-        {mergedResume.data.skills && <Skills skills={mergedResume.data.skills}/>}
-        {mergedResume.data.work && <Work work={mergedResume.data.work}/>}
-        {mergedResume.data.publications && <Publications publications={mergedResume.data.publications}/>}
-        {mergedResume.data.projects && <Projects projects={mergedResume.data.projects}/>}
-        {mergedResume.data.certificates && <Certificates certificates={mergedResume.data.certificates}/>}
-        {mergedResume.data.awards && <Awards awards={mergedResume.data.awards}/>}
-        {mergedResume.data.volunteer && <Volunteer volunteer={mergedResume.data.volunteer}/>}
-        {mergedResume.data.languages && <Languages languages={mergedResume.data.languages}/>}
-        {mergedResume.data.interests && <Interests interests={mergedResume.data.interests}/>}
-        {mergedResume.data.references && <References references={mergedResume.data.references}/>}
+        {mergedResume.basics && <Basics basics={mergedResume.basics}/>}
+        {mergedResume.education && <Education education={mergedResume.education}/>}
+        {mergedResume.skills && <Skills skills={mergedResume.skills}/>}
+        {mergedResume.work && <Work work={mergedResume.work}/>}
+        {mergedResume.publications && <Publications publications={mergedResume.publications}/>}
+        {mergedResume.projects && <Projects projects={mergedResume.projects}/>}
+        {mergedResume.certificates && <Certificates certificates={mergedResume.certificates}/>}
+        {mergedResume.awards && <Awards awards={mergedResume.awards}/>}
+        {mergedResume.volunteer && <Volunteer volunteer={mergedResume.volunteer}/>}
+        {mergedResume.languages && <Languages languages={mergedResume.languages}/>}
+        {mergedResume.interests && <Interests interests={mergedResume.interests}/>}
+        {mergedResume.references && <References references={mergedResume.references}/>}
     </div>
 </html>

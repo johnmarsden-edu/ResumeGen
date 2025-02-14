@@ -1,0 +1,17 @@
+work:
+  - name: NCSU
+    position: Instructor - Introduction to Computing
+    url: 'https://www.csc.ncsu.edu/'
+    startDate: 2022-01
+    endDate: 2022-05
+    highlights:
+      - Taught the fundamentals of <strong>Java</strong> to 40 students
+      - >-
+        Built two autograders using <strong>GradeScope</strong> and <strong>JUnit 5</strong> to autograde
+        student code submissions
+      - >-
+        Designed and administered three exams to validate students' learning
+        progress
+      - >-
+        Used the <strong>Moodle</strong> LMS course page to share lecture slides, communicate assignments,
+        and provide resources

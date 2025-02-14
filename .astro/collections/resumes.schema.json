@@ -7,47 +7,44 @@
         "name": {
           "type": "string"
         },
-        "sources": {
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "collection": {
-                    "type": "string"
-                  }
+        "root": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
                 },
-                "required": [
-                  "id",
-                  "collection"
-                ],
-                "additionalProperties": false
+                "collection": {
+                  "type": "string"
+                }
               },
-              {
-                "type": "object",
-                "properties": {
-                  "slug": {
-                    "type": "string"
-                  },
-                  "collection": {
-                    "type": "string"
-                  }
+              "required": [
+                "id",
+                "collection"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "slug": {
+                  "type": "string"
                 },
-                "required": [
-                  "slug",
-                  "collection"
-                ],
-                "additionalProperties": false
-              }
-            ]
-          }
+                "collection": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "slug",
+                "collection"
+              ],
+              "additionalProperties": false
+            }
+          ]
         },
         "$schema": {
           "type": "string"
@@ -55,7 +52,7 @@
       },
       "required": [
         "name",
-        "sources"
+        "root"
       ],
       "additionalProperties": false
     }

@@ -1,15 +1,21 @@
 skills:
   - name: Programming Languages
     keywords:
-      - 'C#'
-      - Python
-      - Java
-      - SQL
-      - Rust
-      - HTML
-      - CSS
-      - JavaScript
-      - 'F#'
-      - C++
       - C
+      - C++
+      - 'C#'
+      - CSS
+      - 'F#'
       - Haskell
+      - HTML
+      - Java
+      - JavaScript
+      - Kotlin
+      - Lua
+      - PHP
+      - Prolog
+      - Python
+      - Ruby
+      - Rust
+      - SQL
+      - Typescript

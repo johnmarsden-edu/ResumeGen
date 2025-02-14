@@ -1,6 +1,6 @@
 skills:
   - name: Databases
     keywords:
+      - MySQL
       - Oracle Database
       - Postgres
-      - MySQL

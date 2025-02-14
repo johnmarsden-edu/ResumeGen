@@ -518,8 +518,53 @@
           "additionalProperties": {},
           "description": "The schema version and any other tooling configuration lives here",
           "markdownDescription": "The schema version and any other tooling configuration lives here"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "collection": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "collection"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "slug": {
+                    "type": "string"
+                  },
+                  "collection": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "slug",
+                  "collection"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
         }
       },
+      "required": [
+        "sources"
+      ],
       "additionalProperties": {}
     }
   },

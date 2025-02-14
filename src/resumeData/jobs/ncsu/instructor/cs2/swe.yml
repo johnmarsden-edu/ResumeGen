@@ -1,0 +1,13 @@
+work:
+  - name: NCSU
+    position: Instructor - Software Development Fundamentals
+    url: 'https://www.csc.ncsu.edu/'
+    startDate: 2022-06
+    endDate: 2022-08
+    highlights:
+      - >-
+        Taught the software development process and <strong>test-driven development</strong> to
+        20 students
+      - Demonstrated idiomatic generic object-oriented <strong>Java</strong> code to students during 5+ live coding sessions
+      - >-
+        Taught students a variety of common design patterns and both when and when not to apply them

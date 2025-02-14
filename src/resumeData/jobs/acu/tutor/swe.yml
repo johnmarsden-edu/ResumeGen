@@ -1,0 +1,13 @@
+work:
+  - name: ACU
+    position: Tutor
+    url: 'https://www.acu.edu/'
+    startDate: 2017-08
+    endDate: 2019-05
+    highlights:
+      - >-
+        Tutored 70+ students on <strong>C++</strong> programming concepts, including the basics, 
+        pointers, memory management, and object-oriented programming
+      - >-
+        Graded 200+ student <strong>C++</strong> algorithm implementations 
+        using common data structures, including queues, graphs, trees, etc.

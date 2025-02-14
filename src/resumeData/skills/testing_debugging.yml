@@ -1,0 +1,10 @@
+skills:
+  - name: Testing & Debugging
+    keywords:
+      - Cucumber
+      - Fuzzing
+      - GDB
+      - Gherkin
+      - JUnit
+      - Maven
+      - Unit & Integration Testing

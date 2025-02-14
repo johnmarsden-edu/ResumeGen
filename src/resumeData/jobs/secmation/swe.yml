@@ -1,0 +1,16 @@
+work:
+  - name: Secmation
+    position: Software Development Intern
+    url: 'https://secmation.com'
+    startDate: 2021-05
+    endDate: 2021-08
+    highlights:
+      - >-
+        Planned and implemented 20% of a backend for a programming environment
+        with <strong>Python</strong>
+      - >-
+        Outlined an API for the programming environment backend using
+        <strong>AsyncAPI</strong>
+      - >-
+        Containerized the programming environment backend using
+        <strong>Docker</strong> for scalability and ease of use

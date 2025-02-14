@@ -2,7 +2,16 @@ skills:
   - name: Frameworks
     keywords:
       - ASP.NET
-      - Node.js
-      - Rails
-      - Vue
       - Astro
+      - AsyncAPI
+      - Django
+      - Flask
+      - GraphQL
+      - jQuery
+      - Node.js
+      - Puppeteer
+      - Rails
+      - Ruby on Rails
+      - Selenium
+      - Tornado
+      - Vue

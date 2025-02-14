@@ -1,0 +1,13 @@
+work:
+  - name: ACU
+    position: Report Specialist
+    url: 'https://www.acu.edu/'
+    startDate: 2017-10
+    endDate: 2020-05    
+    highlights:
+      - >-
+        Crafted SQL queries to aggregate raw data about alumni interaction into usable information for reporting
+      - >-
+        Created Cognos reports to present data in a user-friendly format for relevant stakeholders
+        
+    

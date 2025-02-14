@@ -1,8 +1,12 @@
 skills:
   - name: Dev Ops
     keywords:
-      - Fuzzing
-      - Github Actions
-      - Docker
       - Bash
+      - Caddy
+      - DigitalOcean
+      - Docker
+      - Github Actions
+      - Heroku
       - Linux
+      - Nginx
+      - Redis

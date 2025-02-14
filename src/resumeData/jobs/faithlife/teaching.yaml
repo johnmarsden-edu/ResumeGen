@@ -1,18 +1,4 @@
 work:
-  - name: Secmation
-    position: Software Development Intern
-    url: 'https://secmation.com'
-    startDate: 2021-05
-    endDate: 2021-08
-    highlights:
-      - >-
-        Planned and implemented 20% of the build system for a secure UAV programming environment
-        with <strong>Python</strong>
-      - >-
-        Designed an intuitive API for the backend using <strong>AsyncAPI</strong>
-      - >-
-        Containerized the programming environment backend using
-        <strong>Docker</strong> for scalability and ease of use
   - name: Faithlife
     position: Software Development Intern
     url: 'https://faithlife.com'
