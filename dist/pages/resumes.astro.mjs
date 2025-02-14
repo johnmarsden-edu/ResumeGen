@@ -1,5 +1,5 @@
 import { c as createComponent, r as renderTemplate, d as addAttribute, e as renderHead, a as createAstro } from '../chunks/astro/server_nr2lUc5z.mjs';
-import { a as getCollection } from '../chunks/_astro_content_BL-_KBJg.mjs';
+import { a as getCollection } from '../chunks/_astro_content_tYDDbicG.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro = createAstro();

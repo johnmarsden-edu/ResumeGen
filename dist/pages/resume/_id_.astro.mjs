@@ -1,5 +1,5 @@
 import { c as createComponent, r as renderTemplate, m as maybeRenderHead, a as createAstro, b as renderComponent, F as Fragment, u as unescapeHTML, d as addAttribute, e as renderHead } from '../../chunks/astro/server_nr2lUc5z.mjs';
-import { g as getEntry, a as getCollection, b as getEntries } from '../../chunks/_astro_content_BL-_KBJg.mjs';
+import { g as getEntry, a as getCollection, b as getEntries } from '../../chunks/_astro_content_tYDDbicG.mjs';
 import { mergician } from 'mergician';
 /* empty css                                   */
 export { renderers } from '../../renderers.mjs';
