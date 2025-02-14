@@ -3,18 +3,19 @@ import { glob } from 'astro/loaders';
 import resumeSchema from './zod/resume-schema.js';
 
 const resumes = defineCollection({
-    loader: glob({ pattern: "**/*.yaml", base: "./src/resumes"}),
+    loader: glob({ pattern: "**/*.(yaml|yml)", base: "./src/resumes"}),
     schema: z.object({
         name: z.string(),
         root: (reference('resumeData'))
     }),
-})
+});
 
 const resumeData = defineCollection({
-    loader: glob({ pattern: "**/*.yaml", base: "./src/resumeData" }),
+    loader: glob({ pattern: "**/*.(yaml|yml)", base: "./src/resumeData" }),
     schema: resumeSchema.extend({
-        sources: z.array(reference('resumeData'))
+        sources: z.array(reference('resumeData')).optional(),
     }),
 });
+
 
 export const collections = { resumeData, resumes };

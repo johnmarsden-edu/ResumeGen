@@ -1,0 +1,10 @@
+work:
+  - startDate: "2019-08-01"
+    endDate: "2020-05-01"
+    name: "Abilene Christian University"
+    position: "Teaching Assistant"
+    url: 'https://www.acu.edu/'
+    highlights:
+      - Designed and implemented 2 interesting and relevant auto-graded programming problems for the object-oriented programming class
+      - Updated current programming problems to reflect new standards for the automated assessment tool 
+      - Designed and implemented proof-of-concept C# auto-grader for Athene

@@ -1,0 +1,16 @@
+work:
+  - name: AIAL
+    position: PhD Student
+    url: 'https://research.csc.ncsu.edu/aial'
+    startDate: 2021-06
+    endDate: 2024-12
+    highlights:
+      - >-
+        Implemented a novel intermediate language for representing student code 
+        for use by <strong>graph-based neural networks</strong>
+      - >-
+        Performed a comprehensive systematic literature review of 500+ papers from the <strong>debugging
+        education</strong> literature
+      - >-
+        Designed 3 studies for use by our research lab to investigate a variety of methods for better 
+        teaching and learning debugging
